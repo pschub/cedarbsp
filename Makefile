@@ -17,6 +17,7 @@ LOWER_MCU  = $(shell echo $(MCU) | tr A-Z a-z)
 
 #  Grab all c files from current dir
 C_FILES = $(wildcard ./common/*.c)
+C_FILES += $(wildcard ./drivers/*.c)
 
 #  Generate .o names from c files
 OBJ_FILES = $(addprefix $(OBJDIR)/,$(notdir $(C_FILES:.c=.o)))
@@ -119,6 +120,13 @@ $(OBJDIR)/%.o : %.c
 
 #  Make object from bsp c file
 $(OBJDIR)/%.o : $(BSP_PATH)/common/%.c
+	@echo Compiling $<, writing to $@...
+	@mkdir -p $(dir $@)
+	$(CC) $(GCFLAGS) -c $< -o $@ > $(basename $@).lst
+	@echo
+
+#  Make object from bsp c file
+$(OBJDIR)/%.o : $(BSP_PATH)/drivers/%.c
 	@echo Compiling $<, writing to $@...
 	@mkdir -p $(dir $@)
 	$(CC) $(GCFLAGS) -c $< -o $@ > $(basename $@).lst
