@@ -158,5 +158,6 @@ clean:
 	@echo "Cleaning up..."
 	rm -rf obj
 	rm -rf bin
+	rm -rf $(TARGET)
 
 
