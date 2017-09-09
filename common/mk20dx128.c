@@ -29,6 +29,7 @@
  */
 
 #include "kinetis.h"
+#include "systick.h"
 //#include "core_pins.h" // testing only //PJS
 //#include "ser_print.h" // testing only //PJS
 #include <errno.h>
@@ -218,14 +219,13 @@ void unused_isr(void)
 	fault_isr();
 }
 
-// PJS systick_millis_count was in pins_teensy.c, but moved here
-// to be with the ISR.
+// PJS Moved systick stuff to separate driver.
 //extern volatile uint32_t systick_millis_count;
-volatile uint32_t systick_millis_count;
 void systick_default_isr(void)
 {
-	systick_millis_count++;
+	//systick_millis_count++;
 }
+
 
 void nmi_isr(void)		__attribute__ ((weak, alias("unused_isr")));
 void hard_fault_isr(void)	__attribute__ ((weak, alias("fault_isr")));
