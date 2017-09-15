@@ -16,5 +16,6 @@ int cb_putc(CircularBuffer* cb, uint8_t c);
 uint8_t cb_getc(CircularBuffer* cb);
 int cb_isfull(CircularBuffer* cb);
 int cb_isempty(CircularBuffer* cb);
+uint32_t cb_space(CircularBuffer* cb);
 
 #endif

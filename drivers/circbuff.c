@@ -48,3 +48,15 @@ int cb_isempty(CircularBuffer* cb)
     return cb->head == cb->tail;
 }
 
+// return amount of empty space
+uint32_t cb_space(CircularBuffer* cb)
+{
+    uint32_t tail = cb->tail;
+    uint32_t head = cb->head;
+    if (head >= tail){
+        return (cb->mask + 1) - head + tail;
+    } else {
+        return (cb->mask + 1) - tail + head;
+    }
+}
+

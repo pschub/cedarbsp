@@ -28,6 +28,9 @@ int uart_putc(uint8_t c);
 // Transmit null-terminated string. Returns 0 on success.
 int uart_puts(uint8_t* s);
 
+// Transmit null-terminated string, blocking until entire string loaded.
+int uart_puts_wait(uint8_t* s);
+
 // Set parity mode of UART.
 void uart_setparity(uint8_t type);
 

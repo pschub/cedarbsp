@@ -107,6 +107,17 @@ int uart_puts(uint8_t* s)
     return 0;
 }
 
+int uart_puts_wait(uint8_t* s)
+{
+    if (!s) return -1;
+    while(*s != '\0') {
+        if (0 == uart_putc(*s)){
+            s++;
+        }
+    }
+    return 0;
+}
+
 
 int uart_getc(uint8_t* c)
 {
