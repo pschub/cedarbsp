@@ -3057,6 +3057,9 @@ typedef struct {
 #define PDB0_MOD		(*(volatile uint32_t *)0x40036004) // Modulus Register
 #define PDB0_CNT		(*(volatile uint32_t *)0x40036008) // Counter Register
 #define PDB0_IDLY		(*(volatile uint32_t *)0x4003600C) // Interrupt Delay Register
+#define PDB_CHC1_BB(n)  (((n) & 3) << 16) // Pre-Trigger Back-To-Back Enable
+#define PDB_CHC1_TOS(n) (((n) & 3) << 8) // Pre-Trigger Output Select
+#define PDB_CHC1_EN(n)  ((n) & 3) // Channel Pre-Trigger Enable
 #define PDB0_CH0C1		(*(volatile uint32_t *)0x40036010) // Channel 0 Control Register 1
 #define PDB0_CH0S		(*(volatile uint32_t *)0x40036014) // Channel 0 Status Register
 #define PDB0_CH0DLY0		(*(volatile uint32_t *)0x40036018) // Channel 0 Delay 0 Register
