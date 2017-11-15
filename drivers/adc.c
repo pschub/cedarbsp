@@ -1,9 +1,9 @@
-
 #include "kinetis.h"
 #include "adc.h"
 
+// Slope and offset for internal temp sensor, based on datasheet.
 #define TEMP_SLOPE (583.0903790087464)
-#define VTEMP_25 (0.719)
+#define VTEMP_25   (0.719)
 
 static int adc_calibrate(void);
 
@@ -14,11 +14,6 @@ int adc_init(void)
     // Enable clocks
     SIM_SCGC3 |= SIM_SCGC3_ADC1;
     SIM_SCGC6 |= SIM_SCGC6_ADC0 | SIM_SCGC6_PDB;
-
-    // Clear sample buffer
-    for (int i=0; i<NUM_SAMPLES; i++){
-        samples0[i] = 0x1;
-    }
 
     if (adc_calibrate()){
         // Cal failed. :(
