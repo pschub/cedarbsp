@@ -1,9 +1,29 @@
+/*
+    dma.h - support for dma peripheral on mk20/teensy
 
+
+    This file is part of Cedar BSP, a bsp library for Teensy3.2 and similar.
+    Copyright 2017 Patrick Schubert
+
+    Cedar BSP is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Cedar BSP is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #ifndef DMA_H_FILE
 #define DMA_HFILE
 
 #include <stdint.h>
 
+// DMA Transfer Control Descriptor
 typedef struct{
     volatile void* source; // source/dest addresses
     volatile void* dest;

@@ -1,3 +1,8 @@
+// This file has been modified for use with Cedar BSP to simplify startup and
+// reduce dependencies.
+// Modifications have been noted with PJS signature.
+// These edits are Copyright (c) 2017 Patrick Schubert.
+
 /* Teensyduino Core Library
  * http://www.pjrc.com/teensy/
  * Copyright (c) 2017 PJRC.COM, LLC.
@@ -70,7 +75,8 @@ void ResetHandler(void);
 void _init_Teensyduino_internal_(void) __attribute__((noinline));
 void __libc_init_array(void);
 
-// PJS This func from pins_teensy.c
+// PJS This function was copied from pins_teensy.c in Teensyduino library.
+// We don't need the other things here.
 #define DEFAULT_FTM_MOD (36864 - 1)
 #define DEFAULT_FTM_PRESCALE 2
 void _init_Teensyduino_internal_(void) // PJS

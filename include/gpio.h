@@ -1,12 +1,29 @@
-/* gpio.c
- * Interface to GPIO on teensy3. Uses teensy pin numbers for id-ing port+pin.
- * Offers basic init, input/output, and set/clr/toggle. Supports OR-ing
- * TEENSY_PINs together to affect multiple pins simultaneously. THIS ONLY WORKS
- * FOR TEENSY_PINS ON THE SAME PORT!!! OR-ing TEENSY_PINs on different ports
- * (such as TEENSY_PIN_0 and TEENSY_PIN_9) will result in "interesting" results.
- *
- * Patrick Schubert 2017
- */
+/*
+    gpio.h - support for gpio on mk20/teensy
+
+    Uses teensy pin numbers for identifying port+pin. Offers basic init,
+    input/output, and set/clr/toggle. Supports OR-ing TEENSY_PINs together to
+    affect mltiple pins simultaneously, though THIS ONLY WORKS FOR PINS ON THE
+    SAME PORT!!! OR-ing TEENSY_PINs on different ports (such as TEENSY_PIN_0
+    and TEENSY_PIN_9) will result in "interesting" results.
+
+
+    This file is part of Cedar BSP, a bsp library for Teensy3.2 and similar.
+    Copyright 2017 Patrick Schubert
+
+    Cedar BSP is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Cedar BSP is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #ifndef GPIO_H
 #define GPIO_H

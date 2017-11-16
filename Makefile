@@ -1,5 +1,12 @@
+#
+#    Makefile for Cedar BSP
+#    Modified from the bare-metal Teensy Makefile from Kevin Cuzner/Karl Lunt.
+#    https://github.com/kcuzner/teensy31-blinky-bare-metal
+#    http://kevincuzner.com/2014/04/28/teensy-3-1-bare-metal
+#    http://www.seanet.com/~karllunt/bareteensy31.html
+
 #  Project Name
-PROJECT=teensybsp
+PROJECT=cedarbsp
 
 #  Type of CPU/MCU in target hardware
 CPU = cortex-m4
@@ -20,7 +27,7 @@ C_FILES = $(wildcard ./common/*.c)
 C_FILES += $(wildcard ./drivers/*.c)
 
 #  Generate .o names from c files
-OBJ_FILES = $(addprefix $(OBJDIR)/,$(notdir $(C_FILES:.c=.o)))
+OBJ_FILES = $(addprefix $(OBJDIR)/,$(C_FILES:.c=.o))
 
 #  Final hex product of makefile
 TARGET= $(OUTDIR)/$(PROJECT).a
